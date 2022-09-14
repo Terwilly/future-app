@@ -25,6 +25,11 @@ const routes: Routes = [
     component: CommandeComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'cours',
+    loadChildren: () =>
+      import('./courses/courses.module').then((m) => m.CoursesModule),
+  },
   { path: 'inscription', component: SignupComponent },
   { path: 'connection', component: LoginComponent },
   { path: '**', component: NotFoundPageComponent },
