@@ -1,0 +1,82 @@
+<section id="hero">
+  <div class="hero-image">
+    <div class="container">
+      <h1 class="hero-title text-uppercase text-white">
+        Votre identité <br />
+        Secrete...
+      </h1>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="d-flex justify-content-around mt-5">
+      <div class="aside-menu">
+        <nav>
+          <ul class="d-flex flex-column">
+            <a href="">informations</a>
+            <a href="">Historique des commandes</a>
+            <a href="">Mes avis</a>
+            <a href="">Mes favoris</a>
+            <app-button
+              class="mt-5"
+              text="DECONNEXION"
+              (click)="logout()"
+            ></app-button>
+          </ul>
+        </nav>
+      </div>
+      <div class="compte-info my-5">
+        <div class="info-perso">
+          <h1 class="my-4">Informations personnelles</h1>
+          <div class="content">
+            <p>Nom: Dupont</p>
+            <p>Prenom : Edeline</p>
+            <p>Mot de passe: lorem ipsum</p>
+            <p>Email: edelineprty@gmail.com</p>
+            <p>numero de téléphone: 060612756</p>
+            <p>adresse de Livraison : rue panamericaine, 234, marve 43,PARIS</p>
+            <p>
+              adresse de facturation : rue panamericaine, 234, marve 43,PARIS
+            </p>
+          </div>
+          <app-button text="MODIFIER"></app-button>
+        </div>
+        <div class="info-newsletter">
+          <h1 class="my-4">Newsletter</h1>
+          <div class="content">
+            <p>
+              Abonnez vous à la newsletter ! Ne ratez pas nos offres
+              exceptionnels sur votre article préféré !
+            </p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                OUI
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                Non
+              </label>
+            </div>
+          </div>
+          <app-button text="ENREGISTRER"></app-button>
+        </div>
+      </div>
+      <div class="newsletter"></div>
+    </div>
+  </div>
+</section>

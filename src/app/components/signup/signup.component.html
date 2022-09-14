@@ -1,0 +1,132 @@
+<section id="hero">
+  <div class="hero-image">
+    <div class="container">
+      <h1 class="hero-title text-uppercase text-white"></h1>
+    </div>
+  </div>
+</section>
+<section class="inscription">
+  <div class="container formulaire">
+    <div class="head text-center">
+      <h2>inscription</h2>
+      <p>
+        Vous avez déjà un compte?
+        <a routerLink="/connection">connectez-vous ici!</a>
+      </p>
+    </div>
+    <div class="form-body">
+      <form class="form" [formGroup]="signupForm" (ngSubmit)="signUp()">
+        <div class="mb-3">
+          <label for="nom" class="form-label">Nom</label>
+          <input
+            [ngClass]="{
+              'is-invalid':
+                signupForm.get('nom')?.touched && signupForm.get('nom')?.invalid
+            }"
+            formControlName="nom"
+            type="text"
+            class="form-control"
+            id="nom"
+            aria-describedby="emailHelp"
+            placeholder="nom"
+          />
+          <br />
+          <span class="invalid-feedback">Name can't be blank</span>
+        </div>
+        <div class="mb-3">
+          <label for="prenom" class="form-label">Prénom</label>
+          <input
+            [ngClass]="{
+              'is-invalid':
+                signupForm.get('prenom')?.touched &&
+                signupForm.get('prenom')?.invalid
+            }"
+            formControlName="prenom"
+            type="text"
+            class="form-control"
+            id="prenom"
+            aria-describedby="emailHelp"
+            placeholder="prénom"
+          />
+          <br />
+          <span class="invalid-feedback">prenom can't be blank</span>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Identifiant</label>
+          <input
+            [ngClass]="{
+              'is-invalid':
+                signupForm.get('email')?.touched &&
+                signupForm.get('email')?.invalid
+            }"
+            formControlName="email"
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+            placeholder="email"
+          />
+          <br />
+          <span class="invalid-feedback">Email can't be blank</span>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input
+            [ngClass]="{
+              'is-invalid':
+                signupForm.get('password')?.touched &&
+                signupForm.get('password')?.invalid
+            }"
+            formControlName="password"
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="mot de passe"
+          />
+          <br />
+          <span class="invalid-feedback">Name can't be blank</span>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label"
+            >Confirmer Mot de passe</label
+          >
+          <input
+            [ngClass]="{
+              'is-invalid':
+                signupForm.get('confirmPassword')?.touched &&
+                signupForm.get('confirmPassword')?.invalid
+            }"
+            formControlName="confirmPassword"
+            type="password"
+            class="form-control"
+            id="ConfirmPassword"
+            placeholder="confirmation mot de passe"
+          />
+          <br />
+          <span class="invalid-feedback">Password must match</span>
+        </div>
+        <!-- <div class="rgpn d-flex">
+          <p>
+            Je reconnais avoir pris connaissance et j’accepte les termes des
+            <a href=""> conditions générales d’utilisation.</a>
+          </p>
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="flexSwitchCheckChecked"
+              checked
+            />
+            <label
+              class="form-check-label"
+              for="flexSwitchCheckChecked"
+            ></label>
+          </div>
+        </div> -->
+        <div class="d-grid mx-auto">
+          <button type="submit">VALIDER</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

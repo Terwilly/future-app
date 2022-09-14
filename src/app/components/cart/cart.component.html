@@ -1,0 +1,77 @@
+<ng-container *ngIf="products.length != 0">
+  <div class="container container-largeur">
+    <div class="row">
+      <div class="d-flex justify-content-between">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/eshop">eshop</a></li>
+            <li
+              class="breadcrumb-item active"
+              aria-current="page"
+              routerLink="/cart"
+            >
+              Panier
+            </li>
+          </ol>
+        </nav>
+        <div class="cart">
+          <i routerLink="/cart" class="fa-solid fa-2x fa-cart-plus"></i>
+        </div>
+      </div>
+    </div>
+    <div class="recap">
+      <p>Récapitulatif du panier</p>
+    </div>
+    <ng-container *ngFor="let productItem of products">
+      <div
+        class="d-flex justify-content-between align-items-center border-product"
+      >
+        <div class="product d-flex align-items-center">
+          <img width="30%" [src]="productItem.imageUrl" alt="" />
+          <div class="mx-4">
+            <h5>{{ productItem.Nom_A }}</h5>
+            <span>Numéro de produit X000 {{ productItem.id }}</span>
+          </div>
+        </div>
+        <div class="price">
+          <p>{{ productItem.Prix | currency: "EUR" }}</p>
+        </div>
+        <div class="qte bg-secondary">
+          <i class="fa-solid fa-minus mx-4"></i><span class="fs-4">1</span>
+          <i class="fa-regular fa-2x fa-plus mx-4"></i>
+        </div>
+        <div class="delete">
+          <i
+            (click)="removeItem(productItem.id)"
+            class="fa-solid fa-2x fa-xmark"
+          ></i>
+        </div>
+      </div>
+    </ng-container>
+    <div class="sous-total container-largeur">
+      <h4 class="float-end">
+        <strong> Sous Total : {{ grandTotal | currency: "EUR" }}</strong>
+      </h4>
+    </div>
+  </div>
+  <section class="container container-largeur d-flex mx-auto my-5">
+    <app-button
+      class="mx-2"
+      text="Continuer mes achats"
+      routerLink="/eshop"
+    ></app-button>
+    <app-button
+      class="mx-2"
+      routerLink="commande"
+      text="Passer commande"
+    ></app-button>
+  </section>
+</ng-container>
+<br /><br />
+
+<ng-container *ngIf="products.length == 0">
+  <h1 class="text-center">Ton panier est vide</h1>
+  <div class="container-largeur">
+    <app-button text="Faire des Achats" routerLink="/eshop"></app-button>
+  </div>
+</ng-container>

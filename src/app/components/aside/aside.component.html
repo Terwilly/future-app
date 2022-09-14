@@ -1,0 +1,62 @@
+<h1 class="fw-bold">Filtres</h1>
+<div class="prix">
+  <h5 class="pt-3">Prix</h5>
+  <div class="slidecontainer">
+    <input
+      type="range"
+      min="0"
+      max="200"
+      value="50"
+      class="slider"
+      id="myRange"
+    />
+    <br />
+    <label for="">0€</label>
+    <label for="" class="px-5 mx-5">100€</label>
+  </div>
+</div>
+
+<div class="categorie mt-4">
+  <div class="d-flex justify-content-between">
+    <h4>Catégorie</h4>
+    <div>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </div>
+  <div class="my-1">
+    <div class="white-color"></div>
+  </div>
+  <div class="form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="check1"
+      name="sac"
+      value="sac"
+      (click)="onChangeValue($event)"
+    />
+    <label class="form-check-label" for="check1">sac</label>
+  </div>
+  <div class="form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="check2"
+      name="vetement"
+      value="vetement"
+      (click)="onChangeValue($event)"
+    />
+    <label class="form-check-label" for="check2">vetement</label>
+  </div>
+  <div class="form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="check2"
+      name="poster"
+      value="poster"
+      (click)="onChangeValue($event)"
+    />
+    <label class="form-check-label" for="check2">poster</label>
+  </div>
+</div>

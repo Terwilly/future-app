@@ -1,0 +1,53 @@
+<div class="resulats mt-5 d-flex justify-content-between">
+  <p>
+    Résultats: <span class="mx-2"> {{ products.length }}</span>
+  </p>
+  <p>Trier par <i class="fa-solid fa-chevron-down"></i></p>
+</div>
+
+<div class="row">
+  <ng-container
+    *ngFor="
+      let productItem of products
+        | paginate: { itemsPerPage: 9, currentPage: p }
+    "
+  >
+    <div class="col-md-4">
+      <div class="card my-3">
+        <img
+          routerLink="product/{{ productItem.id }}"
+          class="card-img-top imageClick"
+          [src]="productItem.imageUrl"
+          alt="Card image cap"
+        />
+        <i
+          *ngIf="!addedToWishlist"
+          class="fa-regular fa-heart fav-icon fa-2x p-2"
+          (click)="addToWishlist()"
+        ></i>
+        <i
+          *ngIf="addedToWishlist"
+          class="fa-solid fa-heart fav-icon fa-2x p-2"
+          (click)="removeToWishList()"
+        ></i>
+        <div class="bg-dark py-3 text-center">
+          <h5 class="card-title">{{ productItem.Nom_A | uppercase }}</h5>
+          <h5 class="card-title">{{ productItem.Prix | currency: "EUR" }}</h5>
+        </div>
+
+        <button class="px-3 text-center" (click)="addToCart(productItem)">
+          AJOUTER AU PANIER
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="">
+    <pagination-controls
+      class="mt-5 pt-5 text-center"
+      previousLabel="Précedent"
+      nextLabel="Suivant"
+      (pageChange)="p = $event"
+    ></pagination-controls>
+  </div>
+</div>

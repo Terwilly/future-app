@@ -1,0 +1,79 @@
+<br /><br /><br />
+<div class="container container-largeur">
+  <div class="row">
+    <div class="d-flex justify-content-between">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/eshop">eshop</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <a routerLink="/cart">Panier</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Recaputilatif
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="d-flex justify-content-between">
+      <p class="fs-3">Commande</p>
+      <p>Quantité : {{ productsCommande.length }}</p>
+      <i class="fa-solid fa-2x fa-xmark"></i>
+    </div>
+
+    <ng-container *ngFor="let products of productsCommande">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center py-3">
+          <img width="20%" class="image" [src]="products.imageUrl" alt="" />
+          <div class="info-product mx-3">
+            <h5 class="text-muted">Goodies</h5>
+            <div class="nom_product">
+              <h4>{{ products.Nom_A }}</h4>
+            </div>
+            <div class="price">
+              <h2>{{ products.Prix | currency: "EUR" }}</h2>
+            </div>
+          </div>
+        </div>
+        <div class="delete">
+          <i class="fa-solid text-muted fa-xmark">...</i>
+        </div>
+      </div>
+      <br />
+    </ng-container>
+    <br />
+
+    <div class="row">
+      <div>
+        <input type="text" placeholder="Code Promo" />
+        <button class="btn btn-outliine-primary mx-4 px-5">AJOUTER</button>
+      </div>
+    </div>
+
+    <hr />
+    <div class="d-flex justify-content-between">
+      <p><strong>Total</strong></p>
+      <p>{{ grandTotal | currency: "EUR" }}</p>
+    </div>
+    <div class="d-flex justify-content-between">
+      <p><strong>Reduction</strong></p>
+      <p>-</p>
+    </div>
+    <div class="d-flex justify-content-between">
+      <p><strong>Taxe</strong></p>
+      <p>-</p>
+    </div>
+    <hr />
+    <div class="d-flex justify-content-between">
+      <p><strong>Total Final</strong></p>
+      <p>{{ grandTotal | currency: "EUR" }}</p>
+    </div>
+  </div>
+</div>
+<section class="container container-largeur d-flex mx-auto my-5">
+  <button class="mx-2 uppercase" routerLink="/cart">Revenir au panier</button>
+  <button class="mx-2 uppercase" routerLink="livraison">
+    Valider Mon Achat
+  </button>
+</section>

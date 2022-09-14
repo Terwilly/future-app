@@ -1,0 +1,64 @@
+<section id="hero">
+  <div class="hero-image">
+    <div class="container">
+      <h1 class="hero-title text-uppercase text-white"></h1>
+    </div>
+  </div>
+</section>
+<section class="inscription">
+  <div class="container formulaire">
+    <div class="head text-center">
+      <h2>Connection</h2>
+      <p>
+        Vous n'avez pas encore un compte?
+        <a routerLink="/inscription">inscrivez-vous ici!</a>
+      </p>
+    </div>
+    <div class="form-body">
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Identifiant</label>
+          <input
+            formControlName="email"
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+            placeholder="email"
+          />
+          <br />
+          <span
+            class="text-danger"
+            *ngIf="
+              loginForm.controls['email'].dirty &&
+              loginForm.hasError('required', 'email')
+            "
+            >* Veuillez rentrer un email valid</span
+          >
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="mot de passe"
+          />
+          <br />
+          <span
+            class="text-danger"
+            *ngIf="
+              loginForm.controls['password'].dirty &&
+              loginForm.hasError('required', 'password')
+            "
+            >* add your password</span
+          >
+        </div>
+        <div class="d-grid mx-auto">
+          <button [disabled]="!loginForm.valid" type="submit">VALIDER</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

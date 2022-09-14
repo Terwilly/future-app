@@ -1,0 +1,105 @@
+<section>
+  <div class="container pt-5 conteneur-single">
+    <div class="row">
+      <div class="d-flex justify-content-between">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/eshop">eshop</a></li>
+            <li
+              class="breadcrumb-item active"
+              aria-current="page"
+              routerLink="/eshop/product/{{ product.id }}"
+            >
+              Panier
+            </li>
+          </ol>
+        </nav>
+        <div class="cart">
+          <i routerLink="/cart" class="fa-solid fa-2x fa-cart-plus"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br /><br />
+<section class="product conteneur-single">
+  <div class="row">
+    <div class="col-md-6">
+      <img width="85%" [src]="product.imageUrl" alt="" />
+    </div>
+    <div class="col-md-6">
+      <div class="star pb-3">
+        <i class="fa-solid px-1 fa-star"></i>
+        <i class="fa-solid px-1 fa-star"></i>
+        <i class="fa-solid px-1 fa-star"></i>
+        <i class="fa-solid px-1 fa-star"></i>
+        <i class="fa-solid px-1 fa-star"></i>
+        <span class="px-3 gray">6 commentaires</span>
+      </div>
+      <h1>{{ product.Nom_A | uppercase }}</h1>
+      <div class="white-color"></div>
+      <div class="row my-4">
+        <div class="d-flex justify-content-between">
+          <h3>{{ product.Prix | currency: "EUR" }}</h3>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="px-4">EnStock</div>
+            <select
+              class="form-select rounded"
+              aria-label="Default select example"
+            >
+              <option selected>Taille M</option>
+              <option value="1">Taille L</option>
+              <option value="2">Taille XL</option>
+              <option value="3">Taille S</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="d-flex align-items-center pb-5">
+          <app-button
+            class="button1"
+            (click)="addToCart(product)"
+            text="Ajouter au panier"
+          ></app-button>
+          <div class="mx-3">
+            <i class="fa-regular border fa-2x fa-heart"></i>
+          </div>
+        </div>
+      </div>
+      <div class="white-color"></div>
+      <div class="description mt-4">
+        {{ product.Description }}
+      </div>
+    </div>
+  </div>
+</section>
+<br />
+<div class="my-4 conteneur-single">
+  <div class="white-color"></div>
+</div>
+
+<section>
+  <div class="conteneur-single">
+    <div class="caracteristiques">
+      <h4>Caractéristiques</h4>
+      <p>Matériaux:</p>
+      <p>Couleur:</p>
+      <p>Poids:</p>
+      <p>Capacité:</p>
+    </div>
+    <div class="my-4">
+      <div class="white-color"></div>
+    </div>
+
+    <div class="caracteristiques">
+      <h4>Livraison</h4>
+      <p>Livraison à domicile</p>
+      <p>Retrait en point relais</p>
+      <p>Délai de livraison 2-4 jours</p>
+    </div>
+    <div class="my-4">
+      <div class="white-color"></div>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "rajdhani";
+  src: url(./assets/police/Rajdhani-Regular.ttf);
+}
+
+@font-face {
+  font-family: "space-grotesk";
+  src: url(./assets/police/SpaceGrotesk-VariableFont_wght.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "rajdhani";
+  background-color: black;
+  color: white;
+}
+
+button {
+  padding: 10px;
+  background: rgb(208, 203, 203);
+  background: linear-gradient(
+    96deg,
+    rgba(208, 203, 203, 1) 0%,
+    rgba(149, 19, 19, 1) 72%
+  );
+  color: white;
+  border: none;
+  text-shadow: #000 1px 0 10px;
+}
+
+.fa-cart-plus {
+  cursor: pointer;
+}
